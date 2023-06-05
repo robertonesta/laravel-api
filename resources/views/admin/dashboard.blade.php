@@ -12,9 +12,9 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="row">{{$totalProjects}}</td>
-                <td scope="row">{{$firstProject->title}}</td>
-                <td scope="row">{{$lastProject->title}}</td>
+                <td class="fw-bold" scope="row">{{$totalProjects}}</td>
+                <td scope="row">{{$firstProject->title}} (published on: {{$firstProject->date}})</td>
+                <td scope="row">{{$lastProject->title}} (published on: {{$lastProject->date}})</td>
             </tr>
         </tbody>
     </table>
