@@ -26,11 +26,11 @@
             <tr class="">
                 <td scope="row">{{$project->id}}</td>
                 <td scope="row">{{$project->title}}</td>
-                <td scope="row">{{$project->repo}}</td>
+                <td class="repositoryColumn" scope="row">{{$project->repo}}</td>
                 <td scope="row">{{$project->date}}</td>
                 <td scope="row">
                     <a class="btn btn-primary" type="button" href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
-                    <a class="btn btn-secondary" type="button" href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pencil fa-fw"></i></a>
+                    <a class="btn btn-warning" type="button" href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pencil fa-fw"></i></a>
                     <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$project->id}}">
                         <i class="fas fa-trash fa-sm fa-fw"></i>
                     </a>
