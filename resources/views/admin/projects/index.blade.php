@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="text-center">
+    <a type="button" class="btn btn-success my-3 border-0 text-white" href="#">Add a Project</a>
+</div>
 
 <div class="table-responsive">
     <table class="table table-primary">
@@ -20,7 +23,35 @@
                 <td scope="row">{{$project->title}}</td>
                 <td scope="row">{{$project->repo}}</td>
                 <td scope="row">{{$project->date}}</td>
-                <td scope="row">VIEW/EDIT/DELETE</td>
+                <td scope="row">
+                    <a class="btn btn-primary" type="button" href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
+                    <a class="btn btn-secondary" type="button" href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pencil fa-fw"></i></a>
+                    <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$project->id}}">
+                        <i class="fas fa-trash fa-sm fa-fw"></i>
+                    </a>
+
+                    <div class="modal fade" id="modal-{{$project->id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitle-{{$project->id}}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex flex-column">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                                    <h5 class="modal-title" id="modalTitle-{{$project->id}}">Delete <SPAN class="text-uppercase"></SPAN></h5>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure? This is a no-return action.
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center align-items-center gap-2">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Reset</button>
+                                    <form action="{{route('admin.projects.destroy', $project->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
             </tr>
             @empty
             <p>No projects right now</p>
