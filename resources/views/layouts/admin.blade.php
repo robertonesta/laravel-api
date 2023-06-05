@@ -85,8 +85,27 @@
             </div>
         </nav>
 
-        <main class="">
-            @yield('content')
+        <main>
+            <div class="container">
+                <h2 class="fs-4 text-secondary my-4">
+                    {{ __('Dashboard') }}
+                </h2>
+                <div class="row">
+                    <div class="col-3">
+                        <ul class="list-unstyled">
+                            <li class="bg-primary py-1 px-2 rounded-3 mb-3">
+                                <a href="{{route('admin.dashboard')}}">Dashboard</a>
+                            </li>
+                            <li class="bg-primary py-1 px-2 rounded-3">
+                                <a href="{{route('admin.projects.index')}}">Projects</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-9">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>

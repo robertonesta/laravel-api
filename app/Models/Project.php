@@ -12,7 +12,7 @@ class Project extends Model
     protected $fillable = ['title','repo', 'date'];
 
     public static function createRepo($projectTitle) {
-        $repo = 'https://github.com/robertonesta' . Str::slug($projectTitle, '-');
+        $repo = 'https://github.com/robertonesta/' . Str::slug($projectTitle, '-');
         return $repo;
     }
 }
