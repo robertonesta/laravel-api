@@ -24,7 +24,18 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:3|max:150',
+            'repo' => 'nullable',
+            'date' => 'nullable',
+        ];
+    }
+    
+    public function messages()
+    {
+        return [
+            'title.required' => 'You must add a title!',
+            'title.min' =>'The title must have at least 3 characters!',
+            'title.max' => 'The length of the title must be less than 150 characters!',
         ];
     }
 }
