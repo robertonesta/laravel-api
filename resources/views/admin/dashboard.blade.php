@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="table-responsive">
+<div class="table-responsive text-center">
     <table class="table table-dark">
-        <thead>
+        <thead class="text-uppercase">
             <tr>
                 <th scope="col">Total Projects</th>
                 <th scope="col">First Project</th>

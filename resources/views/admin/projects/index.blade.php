@@ -35,7 +35,7 @@
                             <div class="modal-content">
                                 <div class="modal-header d-flex flex-column">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-                                    <h5 class="modal-title" id="modalTitle-{{$project->id}}">Delete <SPAN class="text-uppercase"></SPAN></h5>
+                                    <h5 class="modal-title" id="modalTitle-{{$project->id}}">Delete the project "{{$project->title}}"</h5>
                                 </div>
                                 <div class="modal-body">
                                     Are you sure? This is a no-return action.
