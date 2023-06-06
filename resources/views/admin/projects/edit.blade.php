@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Edit</h1>
     @include('partials.validation_errors')
-    <form action="{{route('admin.projects.update', $project->id)}}" method="post">
+    <form action="{{route('admin.projects.update', $project)}}" method="post">
         @csrf
         @method('put')
         <div class="mb-3">

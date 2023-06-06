@@ -41,6 +41,7 @@ class ProjectController extends Controller
         $val_data = $request ->validated();
 
         $val_data['repo'] = Project::createRepo($val_data['title']);
+        $val_data['slug'] = Project::createSlug($val_data['title']);
         $val_data['date'] = date('Y-m-d');
         Project::create($val_data);
         return to_route('admin.projects.index')->with('message', 'A new project has been added successfully');
@@ -81,6 +82,7 @@ class ProjectController extends Controller
 
         $val_data['repo'] = Project::createRepo($val_data['title']);
         $val_data['date'] = date('Y-m-d');
+        $val_data['slug'] = Project::createSlug($val_data['title']);
         $project->update($val_data);
         return to_route('admin.projects.index')->with('message', 'The project has been updated successfully');
     }

@@ -11,7 +11,7 @@
 </div>
 @endif
 <div class="table-responsive">
-    <table class="table table-primary">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -29,8 +29,8 @@
                 <td class="repositoryColumn" scope="row">{{$project->repo}}</td>
                 <td scope="row">{{$project->date}}</td>
                 <td scope="row">
-                    <a class="btn btn-primary" type="button" href="{{route('admin.projects.show', $project->id)}}"><i class="fa-solid fa-eye"></i></a>
-                    <a class="btn btn-warning" type="button" href="{{route('admin.projects.edit', $project->id)}}"><i class="fa-solid fa-pencil fa-fw"></i></a>
+                    <a class="btn btn-primary" type="button" href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye"></i></a>
+                    <a class="btn btn-warning" type="button" href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-pencil fa-fw"></i></a>
                     <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$project->id}}">
                         <i class="fas fa-trash fa-sm fa-fw"></i>
                     </a>
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="modal-footer d-flex justify-content-center align-items-center gap-2">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Reset</button>
-                                    <form action="{{route('admin.projects.destroy', $project->id)}}" method="post">
+                                    <form action="{{route('admin.projects.destroy', $project)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

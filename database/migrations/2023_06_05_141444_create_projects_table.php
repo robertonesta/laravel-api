@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 150);
             $table->string('repo')->nullable();
+            $table->string('slug', 150);
             $table->date('date')->nullable();     
             $table->timestamps();
         });

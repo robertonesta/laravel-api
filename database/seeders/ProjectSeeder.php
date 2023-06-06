@@ -20,6 +20,7 @@ class ProjectSeeder extends Seeder
             $project = new Project();
             $project->title = $faker->sentence();
             $project->repo = Project::createRepo($project->title);
+            $project->slug = Project::createSlug($project->title);
             $project->date = date("Y-m-d");
             $project->save();
         }
