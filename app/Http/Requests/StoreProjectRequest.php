@@ -27,6 +27,7 @@ class StoreProjectRequest extends FormRequest
             'title' => ['required', Rule::unique('projects', 'title'), 'min:3', 'max:150'],
             'repo' => 'nullable',
             'date' => 'nullable',
+            'type_id' => ['exists:types,id', 'nullable'],
         ];
     }
     public function messages()
