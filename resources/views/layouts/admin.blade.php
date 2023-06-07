@@ -96,8 +96,11 @@
                             <li class="bg-primary py-1 px-2 rounded-3 mb-3">
                                 <a href="{{route('admin.dashboard')}}">Dashboard</a>
                             </li>
-                            <li class="bg-primary py-1 px-2 rounded-3">
+                            <li class="bg-primary py-1 px-2 rounded-3 mb-3">
                                 <a href="{{route('admin.projects.index')}}">Projects</a>
+                            </li>
+                            <li class="bg-primary py-1 px-2 rounded-3 mb-3">
+                                <a href="#">Types</a>
                             </li>
                         </ul>
                     </div>

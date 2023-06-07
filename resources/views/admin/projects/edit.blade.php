@@ -10,7 +10,7 @@
         <div class="mb-3">
           <label for="title" class="form-label" class="text-uppercase">Title</label>
           <input type="text"
-            class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Change the title for this project max 150 characters">
+            class="form-control" value="{{ old('title', $project->title)}}" name="title" id="title" aria-describedby="helpId" placeholder="Change the title for this project max 150 characters">
         </div>
         <div class="mb-3">
           <label for="type_id" class="form-label" class="text-uppercase">Types</label>
