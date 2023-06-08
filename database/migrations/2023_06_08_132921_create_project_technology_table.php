@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('technology_id')->references('id')->on('technologies')->cascadeOnDelete();
             $table->timestamps();
 
-            $table->primary(['project_id','technology_id']);
         });
     }
 
