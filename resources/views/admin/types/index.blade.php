@@ -4,8 +4,18 @@
 
 <div class="container">
     <h2>Types</h2>
+    @if (Session::has('message'))
+    <div class="text-center alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>{{Session('message')}}</strong>
+    </div>
+    @endif
     <div class="row">
-        <div class="col-6"></div>
+        <div class="col-6">
+            <div class="text-center">
+                <a type="button" class="w-50 btn btn-success my-3 border-0 text-white" href="{{route('admin.types.create')}}">Add a new Type</a>
+            </div>
+        </div>
         <div class="col-6">
             <div class="table-responsive">
                 <table class="table table-striped">

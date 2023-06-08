@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreTechnologyRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreTechnologyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,15 @@ class StoreTechnologyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', Rule::unique('technologies', 'name'), 'min:2', 'max:40']
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'You must add a name!',
+            'name.min' =>'The name must have at least 3 characters!',
+            'name.max' => 'The length of the name must be less than 150 characters!',
         ];
     }
 }
