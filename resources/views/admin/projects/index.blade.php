@@ -19,6 +19,7 @@
                 <th scope="col">Repository</th>
                 <th scope="col">Date</th>
                 <th scope="col">Type</th>
+                <th scope="col">Technology</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -30,6 +31,13 @@
                 <td class="repositoryColumn" scope="row">{{$project->repo}}</td>
                 <td scope="row">{{$project->date}}</td>
                 <td scope="row">{{$project->type?->name}}</td>
+                <td scope="row">
+                    @foreach($project->technologies as $technology)
+                    <p>
+                        {{$technology->name}}
+                    </p>
+                    @endforeach
+                </td>
                 <td scope="row">
                     <a class="btn btn-primary" type="button" href="{{route('admin.projects.show', $project)}}"><i class="fa-solid fa-eye"></i></a>
                     <a class="btn btn-warning" type="button" href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-pencil fa-fw"></i></a>
