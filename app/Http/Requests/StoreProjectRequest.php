@@ -28,6 +28,7 @@ class StoreProjectRequest extends FormRequest
             'repo' => 'nullable',
             'date' => 'nullable',
             'type_id' => ['exists:types,id', 'nullable'],
+            'technologies' => ['exists:technologies,id', 'nullable'],
         ];
     }
     public function messages()

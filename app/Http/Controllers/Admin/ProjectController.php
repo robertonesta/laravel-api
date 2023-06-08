@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
+use App\Models\Technology;
 
 class ProjectController extends Controller
 {
@@ -29,7 +30,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+        $technologies = Technology::orderBy('name')->get();
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -45,7 +47,10 @@ class ProjectController extends Controller
         $val_data['repo'] = Project::createRepo($val_data['title']);
         $val_data['slug'] = Project::createSlug($val_data['title']);
         $val_data['date'] = date('Y-m-d');
-        Project::create($val_data);
+        $newproject = Project::create($val_data);
+        if ($request['technologies']){
+            $newproject->technologies()->attach($val_data['technologies']);
+        }
         return to_route('admin.projects.index')->with('message', 'A new project has been added successfully');
     }
 
@@ -70,7 +75,8 @@ class ProjectController extends Controller
 
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::orderBy('name')->get();
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -81,12 +87,13 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateProjectRequest $request, Project $project)
+
     {
         $val_data = $request ->validated();
-
         $val_data['repo'] = Project::createRepo($val_data['title']);
         $val_data['date'] = date('Y-m-d');
         $val_data['slug'] = Project::createSlug($val_data['title']);
+        $project->technologies()->sync($val_data['technologies']);
         $project->update($val_data);
         return to_route('admin.projects.index')->with('message', 'The project has been updated successfully');
     }
