@@ -8,6 +8,10 @@
             <p><strong>Repository URL:</strong> {{$project->repo}}</p>
             <p><strong>Date: </strong>{{$project->date}}</p>
             <p><strong>Type: </strong>{{$project->type?->name}}</p>
+            @foreach($project->technologies as $technology)
+            <p><strong>Technology used: </strong>{{$technology->name}}</p>
+            @endforeach
+
             <div class="text-center">
                 <a type="button" class="btn btn-secondary" href="{{route('admin.projects.index')}}">Go back</a>
             </div>
