@@ -100,7 +100,10 @@
                                 <a href="{{route('admin.projects.index')}}">Projects</a>
                             </li>
                             <li class="bg-primary py-1 px-2 rounded-3 mb-3">
-                                <a href="#">Types</a>
+                                <a href="{{route('admin.types.index')}}">Types</a>
+                            </li>
+                            <li class="bg-primary py-1 px-2 rounded-3 mb-3">
+                                <a href="{{route('admin.technologies.index')}}">Technologies</a>
                             </li>
                         </ul>
                     </div>
