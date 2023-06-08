@@ -25,7 +25,7 @@ class UpdateTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('technologies', 'name'), 'min:2', 'max:40']
+            'name' => ['required', Rule::unique('types', 'name'), 'min:2', 'max:40']
         ];
     }
     public function messages()
