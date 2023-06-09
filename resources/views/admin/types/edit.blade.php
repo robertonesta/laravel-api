@@ -8,9 +8,9 @@
         @csrf
         @method('put')
         <div class="mb-3">
-          <label for="type" class="form-label" class="text-uppercase">Name</label>
+          <label for="name" class="form-label" class="text-uppercase">Name</label>
           <input type="text"
-            class="form-control" value="{{ old('type', $type->name)}}" name="type" id="type" aria-describedby="helpType" placeholder="Change the name for this type">
+            class="form-control" value="{{ old('name', $type->name)}}" name="name" id="name" aria-describedby="helpType" placeholder="Change the name for this type">
         </div>
         <div class="d-flex justify-content-center align-items-center gap-3 my-3">
             <button type="reset" class="btn btn-secondary">Reset</button>

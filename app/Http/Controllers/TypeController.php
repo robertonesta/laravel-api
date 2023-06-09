@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TypeController extends Controller
 {
@@ -15,7 +16,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::all();
+        $types = Auth::user()->types()->paginate(4);
         return view('admin.types.index', compact('types'));
     }
 

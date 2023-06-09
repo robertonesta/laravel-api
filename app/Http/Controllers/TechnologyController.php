@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Technology;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TechnologyController extends Controller
 {
@@ -15,7 +16,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        $technologies = Technology::all();
+        $technologies = Auth::user()->technologies()->paginate(4);
         return view('admin.technologies.index', compact('technologies'));
     }
 

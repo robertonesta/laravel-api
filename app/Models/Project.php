@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','repo', 'slug', 'date', 'type_id'];
+    protected $fillable = ['title','repo', 'slug', 'date', 'type_id', 'user_id'];
 
     public static function createRepo($projectTitle) {
         $repo = 'https://github.com/robertonesta/' . Str::slug($projectTitle, '-');
@@ -28,5 +28,9 @@ class Project extends Model
 
     public function technologies(): belongsToMany {
         return $this->belongsToMany(Technology::class);
+    }
+
+    public function user(): BelongsTo{
+        return $this->belongTo(User::class);
     }
 }
