@@ -38,8 +38,9 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        $val_data = $request ->validated();
-        
+
+        $val_data = $request->validated();
+        $val_data['user_id'] = Auth::user()->id;        
         Technology::create($val_data);
         return to_route('admin.technologies.index')->with('message', 'A new technology has been added successfully');
 

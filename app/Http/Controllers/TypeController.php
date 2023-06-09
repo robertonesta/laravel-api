@@ -39,6 +39,8 @@ class TypeController extends Controller
     public function store(StoreTypeRequest $request)
     {
         $val_data = $request ->validated();
+        $val_data['user_id'] = Auth::user()->id;
+        
         Type::create($val_data);
         return to_route('admin.types.index')->with('message', 'A new type has been added successfully');
 

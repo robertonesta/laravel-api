@@ -48,6 +48,7 @@ class ProjectController extends Controller
         $val_data['repo'] = Project::createRepo($val_data['title']);
         $val_data['slug'] = Project::createSlug($val_data['title']);
         $val_data['date'] = date('Y-m-d');
+        $val_data['user_id'] = Auth::user()->id;
         $newproject = Project::create($val_data);
         if ($request['technologies']){
             $newproject->technologies()->attach($val_data['technologies']);
