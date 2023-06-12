@@ -13,8 +13,11 @@ class DashboardController extends Controller
     {
         $projects = Auth::user()->projects()->orderByDesc('id')->get();
         $totalProjects = count($projects);
-        $firstProject = $projects[$totalProjects - 1];
-        $lastProject = $projects[0];
-        return view ('admin.dashboard', compact('totalProjects', 'firstProject', 'lastProject'));
+        if ($totalProjects > 0){
+            $firstProject = $projects[$totalProjects - 1];
+            $lastProject = $projects[0];
+            return view ('admin.dashboard', compact('totalProjects', 'firstProject', 'lastProject'));
+        }
+        return view ('admin.dashboard', compact('totalProjects'));
     }
 }
