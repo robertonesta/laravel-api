@@ -5,6 +5,9 @@
     <div class="card">
         <div class="card-body py-3">
             <h3><strong>Project name:</strong> {{$project->title}}</h3>
+            @if($project->Image)
+            <img src="{{asset('storage/' . $project->Image)}}" alt="{{$project->title}}">
+            @endif
             <p><strong>Repository URL:</strong> {{$project->repo}}</p>
             <p><strong>Date: </strong>{{$project->date}}</p>
             <p><strong>Type: </strong>{{$project->type?->name}}</p>

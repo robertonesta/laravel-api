@@ -14,8 +14,13 @@
         </div>
         <div class="mb-3">
           <label for="Image" class="form-label" class="text-uppercase">Image</label>
-          <input type="file"
-            class="form-control" value="{{old('Image')}}" name="Image" id="Image" aria-describedby="helpImage" placeholder="Change the Image">
+          <div class="d-flex align-items-center gap-3">
+            @if($project->Image)
+              <img src="{{asset('storage/' . $project->Image)}}" alt="{{$project->title}}">
+              @endif
+            <input type="file"
+              class="form-control" value="{{old('Image')}}" name="Image" id="Image" aria-describedby="helpImage" placeholder="Change the Image">
+          </div>
         </div>
         <div class="mb-3">
           <label for="type_id" class="form-label" class="text-uppercase">Types</label>

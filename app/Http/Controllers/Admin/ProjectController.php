@@ -49,8 +49,10 @@ class ProjectController extends Controller
         $val_data['slug'] = Project::createSlug($val_data['title']);
         $val_data['date'] = date('Y-m-d');
         $val_data['user_id'] = Auth::user()->id;
-        $Image = Storage::put('uploads', $val_data['Image']);
-        $val_data['Image'] = $Image;
+        if (array_key_exists('Image', $val_data)){
+            $Image = Storage::put('uploads', $val_data['Image']);
+            $val_data['Image'] = $Image;
+        }
         $newproject = Project::create($val_data);
         if ($request['technologies']){
             $newproject->technologies()->attach($val_data['technologies']);
@@ -98,6 +100,15 @@ class ProjectController extends Controller
         $val_data['repo'] = Project::createRepo($val_data['title']);
         $val_data['date'] = date('Y-m-d');
         $val_data['slug'] = Project::createSlug($val_data['title']);
+        if ($request->hasFile('Image')) {
+            if ($project->Image) {
+                Storage::delete($project->Image);
+            }
+            // Save the file in the storage and get its path
+            $Image = Storage::put('uploads', $request->Image);
+            //dd($image_path);
+            $val_data['Image'] = $Image;
+        }
         $project->technologies()->sync($val_data['technologies']);
         $project->update($val_data);
         return to_route('admin.projects.index')->with('message', 'The project has been updated successfully');
@@ -111,6 +122,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->Image) {
+            Storage::delete($project->Image);
+        }
         $project->delete();
         return to_route('admin.projects.index')->with('message', 'The project has been deleted successfully');
     }

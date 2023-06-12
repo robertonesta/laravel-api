@@ -29,7 +29,9 @@
             <tr class="">
                 <td scope="row">{{$project->id}}</td>
                 <td>
-                    <img src="{{asset('storage/' . $project->Image)}}" width="100" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                    @if($project->Image)
+                    <img src="{{asset('storage/' . $project->Image)}}" width="100" alt="{{$project->title}}">
+                    @endif
                 </td>
                 <td scope="row">{{$project->title}}</td>
                 <td scope="row">{{$project->repo}}</td>
