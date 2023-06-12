@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Type;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 class ProjectController extends Controller
 {
     /**
@@ -49,6 +49,8 @@ class ProjectController extends Controller
         $val_data['slug'] = Project::createSlug($val_data['title']);
         $val_data['date'] = date('Y-m-d');
         $val_data['user_id'] = Auth::user()->id;
+        $Image = Storage::put('uploads', $val_data['Image']);
+        $val_data['Image'] = $Image;
         $newproject = Project::create($val_data);
         if ($request['technologies']){
             $newproject->technologies()->attach($val_data['technologies']);

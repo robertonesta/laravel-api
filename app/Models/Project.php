@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','repo', 'slug', 'date', 'type_id', 'user_id'];
+    protected $fillable = ['title','repo', 'slug', 'date', 'type_id', 'user_id', 'Image'];
 
     public static function createRepo($projectTitle) {
         $repo = 'https://github.com/robertonesta/' . Str::slug($projectTitle, '-');

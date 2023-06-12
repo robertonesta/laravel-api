@@ -15,6 +15,7 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">IMAGE</th>
                 <th scope="col">TITLE</th>
                 <th scope="col">Repository</th>
                 <th scope="col">Date</th>
@@ -27,8 +28,11 @@
             @forelse ($projects as $project)
             <tr class="">
                 <td scope="row">{{$project->id}}</td>
+                <td>
+                    <img src="{{asset('storage/' . $project->Image)}}" width="100" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                </td>
                 <td scope="row">{{$project->title}}</td>
-                <td class="repositoryColumn" scope="row">{{$project->repo}}</td>
+                <td scope="row">{{$project->repo}}</td>
                 <td scope="row">{{$project->date}}</td>
                 <td scope="row">{{$project->type?->name}}</td>
                 <td scope="row">
