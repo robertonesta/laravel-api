@@ -34,7 +34,7 @@
                     @endif
                 </td>
                 <td scope="row">{{$project->title}}</td>
-                <td scope="row">{{$project->repo}}</td>
+                <td scope="row"><a class="text-decoration-none" href="{{$project->repo}}">{{$project->repo}}</a></td>
                 <td scope="row">{{$project->date}}</td>
                 <td scope="row">{{$project->type?->name}}</td>
                 <td scope="row">

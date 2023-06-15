@@ -24,7 +24,7 @@ class ProjectSeeder extends Seeder
             ['DC Comics', 3, 'uploads/DC_comics.jpg', 'https://github.com/robertonesta/laravel-dc-comics', '2023-05-23'],
             ['Boolflix',  1, 'uploads/Netflix.jpg', 'https://github.com/robertonesta/vite-boolflix', '2023-04-21'],
             ['Yu-Gi-Oh!', 1, 'uploads/Yu-Gi-Oh!.jpg', 'https://github.com/robertonesta/vite-yu-gi-oh', '2023-04-18'],
-            ['Whatsapp', 1, 'uploads/Boolzapp.jpg', 'https://github.com/robertonesta/vue-boolzapp', '2023-03-31'],
+            ['Boolzapp', 1, 'uploads/Boolzapp.jpg', 'https://github.com/robertonesta/vue-boolzapp', '2023-03-31'],
             ['Slider', 1, 'uploads/Slider.jpg', 'https://github.com/robertonesta/vue-slider', '2023-03-29'],
             ['Social Posts', 1, 'uploads/Social_posts.jpg', 'https://github.com/robertonesta/js-social-posts', '2023-03-24'],
             ['Campo Minato', 1, 'uploads/Campo_minato.jpg', 'https://github.com/robertonesta/js-campominato-dom', '2023-03-20'],
@@ -41,8 +41,8 @@ class ProjectSeeder extends Seeder
             $newProject->type_id = $project[1];
             $newProject->Image = $project[2];
             $newProject->repo = $project[3];
-            $newProject->slug = Project::createSlug($project->title);
-            $newProject->date = $Project[4];
+            $newProject->slug = Project::createSlug($newProject->title);
+            $newProject->date = $project[4];
             $newProject->save();
         };
     }
