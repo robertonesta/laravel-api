@@ -16,7 +16,7 @@
           <label for="Image" class="form-label" class="text-uppercase">Image</label>
           <div class="d-flex align-items-center gap-3">
             @if($project->Image)
-              <img src="{{asset('storage/' . $project->Image)}}" alt="{{$project->title}}">
+              <img class="img-fluid" src="{{asset('storage/' . $project->Image)}}" alt="{{$project->title}}">
               @endif
             <input type="file"
               class="form-control" value="{{old('Image')}}" name="Image" id="Image" aria-describedby="helpImage" placeholder="Change the Image">

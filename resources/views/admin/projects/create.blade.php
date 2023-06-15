@@ -14,7 +14,7 @@
         <div class="mb-3">
           <label for="Image" class="form-label" class="text-uppercase">Image</label>
           <input type="file"
-            class="form-control" value="{{old('Image')}}" name="Image" id="Image" aria-describedby="helpImage" placeholder="Add a Image">
+            class="form-control img-fluid" value="{{old('Image')}}" name="Image" id="Image" aria-describedby="helpImage" placeholder="Add a Image">
         </div>
         <div class="mb-3">
           <label for="type_id" class="form-label" class="text-uppercase">Types</label>

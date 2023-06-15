@@ -43,6 +43,7 @@ class ProjectSeeder extends Seeder
             $newProject->repo = $project[3];
             $newProject->slug = Project::createSlug($newProject->title);
             $newProject->date = $project[4];
+            $newProject->user_id = 1;
             $newProject->save();
         };
     }

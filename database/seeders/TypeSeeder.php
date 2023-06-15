@@ -23,6 +23,7 @@ class TypeSeeder extends Seeder
         foreach ($types as $type) {
             $newType = New Type();
             $newType -> name = $type;
+            $newType -> user_id = 1;
             $newType -> save();
         }
     }
