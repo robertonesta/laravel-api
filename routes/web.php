@@ -22,6 +22,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/mailable', function () {
+    $lead = Lead::find(1);
+    return new NewLead($lead);
+});
+
 
 Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
